@@ -1,0 +1,47 @@
+VERSION 5.00
+Begin VB.PropertyPage Caption 
+   Caption         =   "Caption"
+   ClientHeight    =   3495
+   ClientLeft      =   0
+   ClientTop       =   0
+   ClientWidth     =   5925
+   PaletteMode     =   0  'Halftone
+   ScaleHeight     =   3495
+   ScaleWidth      =   5925
+   Begin VB.TextBox txtCaption 
+      Height          =   2700
+      Left            =   255
+      MultiLine       =   -1  'True
+      TabIndex        =   1
+      Top             =   540
+      Width           =   5400
+   End
+   Begin VB.Label lblCaption 
+      Caption         =   "Caption:"
+      Height          =   240
+      Left            =   255
+      TabIndex        =   0
+      Top             =   285
+      Width           =   2700
+   End
+End
+Attribute VB_Name = "Caption"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = False
+Attribute VB_Exposed = False
+Private Sub txtCaption_Change()
+    Changed = True
+End Sub
+
+
+Private Sub PropertyPage_ApplyChanges()
+    SelectedControls(0).Caption = txtCaption.Text
+End Sub
+
+
+Private Sub PropertyPage_SelectionChanged()
+    txtCaption.Text = SelectedControls(0).Caption
+End Sub
+
+
